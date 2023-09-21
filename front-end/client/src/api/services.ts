@@ -1,1 +1,0 @@
-export { default as recipeApi } from 'api/recipe/recipe.api';

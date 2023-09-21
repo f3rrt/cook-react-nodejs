@@ -1,0 +1,38 @@
+h1 {
+   padding-top: 25px;
+   padding-bottom: 25px;
+}
+
+.recipe-wrapper {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.recipe-header {
+   display: flex;
+   justify-content: space-between;
+   padding: 20px 17px;
+}
+
+.recipe-card {
+   margin-top: 40px;
+   width: auto;
+}
+
+.recipe-actions {
+   button {
+      margin: 0px 10px;
+   }
+}
+
+img.card-img.recipe-image {
+   width: 25%;
+   height: 15%;
+   margin: 20px 38px;
+}
+
+.card-content {
+   display: flex;
+   flex-wrap: wrap;
+}

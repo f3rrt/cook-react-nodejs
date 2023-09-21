@@ -1,0 +1,35 @@
+.page {
+    display: block;
+ }
+
+ .wrap {
+    margin-bottom: 7rem !important;
+    padding: 0px 40px;
+ }
+
+.btn-morden {
+   background: #518f2d;
+   color: white;
+}
+
+
+h1 {
+   padding-top: 25px;
+   font-size: 2rem;
+}
+
+.form-label {
+   font-weight: 500;
+   margin-top: 10px;
+}
+
+
+
+.recipe-home-list {
+   flex-wrap: wrap;
+   justify-content: space-around;
+   .recipe-card.card {
+      width: 300px;
+      /* margin: 10px; */
+   }
+}
