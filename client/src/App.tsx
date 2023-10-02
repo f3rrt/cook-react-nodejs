@@ -1,14 +1,13 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { Counter } from "../featues/counter/Counter";
+
+import './App.css';
 
 function App() {
-  return (
-    <>
-    <
-    </>
-  );
+
+
+   return (
+      <>
+      </>
+   );
 }
 
 export default App;

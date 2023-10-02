@@ -1,2 +1,2 @@
 # Stack
-React/Redux/Nodejs/NestJS/Mongodb
+React/Redux Toolkit/Nodejs/NestJS/Mongodb
