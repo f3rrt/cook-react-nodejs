@@ -28,14 +28,6 @@ export class RecipeService {
 
    async getAllRecipes(): Promise<IRecipe[]> {
       const recipeData = await this.recipeModel.find();
-      console.log('start');
-      console.log(recipeData[0]?.ingredients);
-      console.log('yes');
-      console.log( recipeData[1]?.ingredients);
-      console.log('end');
-      // if (!recipeData || recipeData.length == 0) {
-      //   throw new NotFoundException('Recipes data not found!');
-      // }
       return recipeData;
    }
 
