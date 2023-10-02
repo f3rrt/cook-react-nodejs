@@ -6,7 +6,7 @@ import './EditRecipe.scss';
 import { useState, useEffect } from 'react';
 import DataLoadingWrapper from 'components/dataLoadingWrapper/DataLoadingWrapper';
 import { useUploadImageMutation } from 'redux/api/upload/upload.api';
-import { useGetRecipeByIdQuery, useUpdateRecipeMutation } from 'redux/api/recipe/recipe.api';
+import { useGetRecipeByIdQuery, useGetRecipesListQuery, useUpdateRecipeMutation } from 'redux/api/recipe/recipe.api';
 import IngredientsSelect from 'components/ingredientsSelect/IngredientsSelect';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
@@ -21,6 +21,8 @@ const EditRecipe = () => {
       error: getRecipeError,
       data: recipe,
    } = useGetRecipeByIdQuery(id ? id : '');
+   const fetchRecipes = useGetRecipesListQuery();
+   const fetchRecipeById = useGetRecipeByIdQuery(id ? id : '');
    const [recipeForm, setRecipeForm] = useState<RecipeForm>({
       title: '',
       description: '',
@@ -81,6 +83,8 @@ const EditRecipe = () => {
             imageUrl: imageData?.data.url,
          };
          await updateRecipe({recipe, id});
+         await fetchRecipes.refetch();
+         await fetchRecipeById.refetch();
          navigate('/recipes');
       } else {
          const recipe = {
@@ -91,6 +95,8 @@ const EditRecipe = () => {
             imageUrl: preview,
          };
          await updateRecipe({recipe, id});
+         await fetchRecipes.refetch();
+         await fetchRecipeById.refetch();
          navigate('/recipes');
       }
    };

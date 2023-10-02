@@ -18,7 +18,7 @@ const Recipe = () => {
       <DataLoadingWrapper isLoading={isLoading} error={error} isSuccess={isSuccess}>
          {recipe && (
             <div>
-               <Card className="recipe-card">
+               <Card className="recipe-card-wrapper">
                   <Card.Header className="recipe-header">
                      <div>
                         <h3>{recipe.title}</h3>

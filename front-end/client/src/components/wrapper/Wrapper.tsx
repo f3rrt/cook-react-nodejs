@@ -13,10 +13,10 @@ const Wrapper = ({ children }: WrapperProps) => {
    console.log(window.location.pathname);
    return (
       <>
-         {window.location.pathname === '/home' ? (
+         {window.location.pathname === '/home' || window.location.pathname === '/' ? (
             <>
                <div className="home-container">
-                  <Header theme='dark'/>
+                  <Header theme="dark" />
                   <h1>Recipe Book</h1>
                   <h4>Your Culinary Adventure Begins Here</h4>
                   {!user && (
@@ -24,7 +24,7 @@ const Wrapper = ({ children }: WrapperProps) => {
                         <Button href="log-in" variant="morden">
                            Log In
                         </Button>
-                        <Button href="registration" className='regist-btn' variant="">
+                        <Button href="registration" className="regist-btn" variant="">
                            Regisration
                         </Button>
                      </div>
@@ -35,7 +35,7 @@ const Wrapper = ({ children }: WrapperProps) => {
             </>
          ) : (
             <>
-               <Header theme=''/>
+               <Header theme="" />
                <Container className="wrap">{children}</Container>
                <Footer />
             </>

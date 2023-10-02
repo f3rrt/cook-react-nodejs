@@ -6,7 +6,7 @@ import './AddRecipe.scss';
 import { useState, useEffect } from 'react';
 import DataLoadingWrapper from 'components/dataLoadingWrapper/DataLoadingWrapper';
 import { useUploadImageMutation } from 'redux/api/upload/upload.api';
-import { useCreateRecipeMutation } from 'redux/api/recipe/recipe.api';
+import { useCreateRecipeMutation, useGetRecipesListQuery } from 'redux/api/recipe/recipe.api';
 import IngredientsSelect from 'components/ingredientsSelect/IngredientsSelect';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
@@ -21,6 +21,7 @@ const AddRecipe = () => {
       instructions: '',
    });
    const navigate = useNavigate();
+   const fetchRecipes = useGetRecipesListQuery();
    const [uploadImage, { isLoading: isImageLoading, error: uploadError }] =
       useUploadImageMutation();
    const [preview, setPreview] = useState('');
@@ -62,6 +63,7 @@ const AddRecipe = () => {
             imageUrl: imageData?.data.url,
          };
          await createRecipe(recipe);
+         await fetchRecipes.refetch();
          navigate('/recipes');
       }
    };
