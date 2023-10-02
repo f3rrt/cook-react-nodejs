@@ -10,7 +10,7 @@ async function bootstrap() {
    const app = await NestFactory.create(AppModule);
    app.enableCors({
       allowedHeaders: ['content-type', 'authorization'],
-      origin: 'http://localhost:5173',
+      origin: 'https://recipes-quey.onrender.com',
       credentials: true,
    });
    //const indexService = app.get(IndexService);
