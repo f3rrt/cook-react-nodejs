@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IGenericResponse } from 'types';
 
-const BASE_URL ='http://localhost:3000'
+const BASE_URL ='https://recipe-95hi.onrender.com'
 
 export const authApi = createApi({
   reducerPath: 'authApi', 

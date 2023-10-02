@@ -17,7 +17,7 @@
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'https://recipe-95hi.onrender.com/';
 
 export const ingredientApi = createApi({
    reducerPath: 'ingredientApi',

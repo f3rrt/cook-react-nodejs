@@ -14,7 +14,7 @@ import * as path from 'path';
 
 @Injectable()
 export class UploadService {
-   SERVER_URL:  string  =  "http://localhost:3000/";
+   SERVER_URL:  string  =  "https://recipe-95hi.onrender.com/";
    constructor(@InjectModel('Image') private readonly imageModel: Model<any>) {}
    // this.bucket = new mongo.GridFSBucket(this.connection.db);
 
