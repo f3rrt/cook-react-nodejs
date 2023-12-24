@@ -4,9 +4,6 @@ node_modules/
 # Ignore build output
 /dist/
 
-# Ignore environment file
-.env
-
 # Ignore editor-specific files
 .vscode/
 .idea/

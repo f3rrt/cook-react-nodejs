@@ -89,11 +89,11 @@ export class AuthService {
 
       const [at, rt] = await Promise.all([
          this.jwtService.signAsync(jwtPayload, {
-            secret: this.config.get<string>('AT_SECRET'),
+            secret: 'AT_SECRET',
             expiresIn: '15m',
          }),
          this.jwtService.signAsync(jwtPayload, {
-            secret: this.config.get<string>('RT_SECRET'),
+            secret: 'RT_SECRET',
             expiresIn: '7d',
          }),
       ]);
