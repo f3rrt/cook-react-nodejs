@@ -29,9 +29,6 @@ import { IndexService } from './common/services/index.service';
          dbName: 'cook',
       }),
       MulterModule.register({ dest: './public/images' }),
-      // ServeStaticModule.forRoot({
-      //    rootPath: join(__dirname, '..', 'client'),
-      //  }),
       ServeStaticModule.forRoot({
           rootPath: join(__dirname, '..', 'public'),
       }),

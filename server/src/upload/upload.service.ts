@@ -14,14 +14,14 @@ import * as path from 'path';
 
 @Injectable()
 export class UploadService {
-   SERVER_URL:  string  =  "https://recipe-95hi.onrender.com/";
+   SERVER_URL:  string  =  process.env.BASE_SERVER_URL;
    constructor(@InjectModel('Image') private readonly imageModel: Model<any>) {}
    // this.bucket = new mongo.GridFSBucket(this.connection.db);
 
    async create(imageData: any): Promise<any> {
 
       const createdImage = new this.imageModel( {
-         url: `${this.SERVER_URL}images/${imageData.filename}`,
+         url: `${this.SERVER_URL}/images/${imageData.filename}`,
       });
       return createdImage.save();
    }
