@@ -49,7 +49,7 @@ export class RecipeService {
       return recipes;
    }
 
-   async deleteRecipe(recipeId: string): Promise<IRecipe> {
+   async deleteRecipe(recipeId: string): Promise<any> {
       const deletedRecipe = await this.recipeModel.findByIdAndDelete(recipeId);
       if (!deletedRecipe) {
          throw new NotFoundException(`Recipe #${recipeId} not found`);

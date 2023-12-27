@@ -50,7 +50,7 @@ export class IngredientService {
       return existingIngredient;
    }
 
-   async deleteIngredient(ingredientId: string): Promise<IIngredient> {
+   async deleteIngredient(ingredientId: string): Promise<any> {
       const deletedIngredient = await this.ingredientModel.findByIdAndDelete(ingredientId);
       if (!deletedIngredient) {
          throw new NotFoundException(`Ingredient #${ingredientId} not found`);
