@@ -2,10 +2,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { prepareAuthHeaders } from 'common/common';
 import { Recipe } from 'types';
 
+const baseUrl = process.env.BASE_SERVER_URL_PREFIX;
+
 export const recipeApi = createApi({
    reducerPath: 'recipeApi',
    baseQuery: fetchBaseQuery({
-      baseUrl: process.env.BASE_SERVER_URL,
+      baseUrl: baseUrl,
       mode: 'cors',
       prepareHeaders: (headers, { getState }) => {
          prepareAuthHeaders(headers, getState);

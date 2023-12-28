@@ -26,7 +26,7 @@ import { IndexService } from './common/services/index.service';
          isGlobal: true,
       }),
       MongooseModule.forRoot(process.env.DB_URI, {
-         dbName: 'cook',
+         dbName: process.env.DB_NAME,
       }),
       MulterModule.register({ dest: './public/images' }),
       ServeStaticModule.forRoot({

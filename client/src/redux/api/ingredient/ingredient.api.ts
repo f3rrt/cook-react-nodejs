@@ -1,23 +1,6 @@
-// import {
-//    IngredientService as IIngredientService,
-//    GetAllIngredientsResponse,
-// } from 'api/ingredient/ingredient.model';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
-// import httpClient from 'common/http/httpClient';
-
-// const IngredientService = (): IIngredientService => {
-//    return {
-//       getAllIngredients: (): HttpPromise<GetAllIngredientsResponse> => {
-//          return httpClient.get('/ingredient');
-//       },
-//    };
-// };
-
-// export default IngredientService();
-
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-const baseUrl = `${process.env.BASE_SERVER_URL}/`;
+const baseUrl = process.env.BASE_SERVER_URL_PREFIX;
 
 export const ingredientApi = createApi({
    reducerPath: 'ingredientApi',
@@ -30,7 +13,7 @@ export const ingredientApi = createApi({
             headers.set('authorization', `Bearer ${token}`);
             return headers;
          }
-      },
+      },<script type="module" src="/cook/src/main.tsx"></scr
    }),
    endpoints: (build) => ({
       getIngredientsList: build.query<any, void>({
@@ -41,11 +24,6 @@ export const ingredientApi = createApi({
                method: 'GET',
             };
          },
-         //  build.query({
-         // query: () => ({
-         //   url: '/ingredient',
-         //   method: 'GET',
-         // }),
       }),
       findIngredientsByIds: build.mutation<any, Partial<any>>({
          query(data) {

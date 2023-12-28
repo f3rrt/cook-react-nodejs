@@ -1,7 +1,7 @@
 /* eslint-disable no-debugger */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseUrl = `${process.env.BASE_SERVER_URL}/`;
+const baseUrl = process.env.BASE_SERVER_URL_PREFIX;
 
 export const uploadApi = createApi({
    reducerPath: 'uploadApi',

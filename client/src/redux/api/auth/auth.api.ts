@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IGenericResponse } from 'types';
 
-const BASE_URL = process.env.BASE_SERVER_URL;
+const baseUrl = process.env.BASE_SERVER_URL_PREFIX;
 
 export const authApi = createApi({
    reducerPath: 'authApi',
    baseQuery: fetchBaseQuery({
-      baseUrl: `${BASE_URL}/auth/`,
+      baseUrl: `${baseUrl}/auth/`,
    }),
 
    endpoints: (builder) => ({

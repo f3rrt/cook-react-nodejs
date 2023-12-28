@@ -1,11 +1,11 @@
+import {Injectable} from '@nestjs/common';
+import {MulterModuleOptions, MulterOptionsFactory} from '@nestjs/platform-express';
 
-import { Injectable } from '@nestjs/common';
-import { MulterModuleOptions, MulterOptionsFactory } from '@nestjs/platform-express';
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 require('dotenv').config();
 const GridFsStorage = require('multer-gridfs-storage').GridFsStorage;
-const url = `${process.env.DB_URI}/cook`;
+const url = `${process.env.DB_URI}/${process.env.DB_NAME}`;
 
 @Injectable()
 export class GridFsMulterConfigService implements MulterOptionsFactory {
