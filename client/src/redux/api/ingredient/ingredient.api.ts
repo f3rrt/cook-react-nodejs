@@ -13,7 +13,7 @@ export const ingredientApi = createApi({
             headers.set('authorization', `Bearer ${token}`);
             return headers;
          }
-      },<script type="module" src="/cook/src/main.tsx"></scr
+      },
    }),
    endpoints: (build) => ({
       getIngredientsList: build.query<any, void>({

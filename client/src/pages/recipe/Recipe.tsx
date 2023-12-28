@@ -1,15 +1,15 @@
 import './Recipe.scss';
-import { recipeApi, useGetRecipeByIdQuery } from 'redux/api/recipe/recipe.api';
+import {recipeApi, useGetRecipeByIdQuery} from 'redux/api/recipe/recipe.api';
 import DataLoadingWrapper from 'components/dataLoadingWrapper/DataLoadingWrapper';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Card } from 'react-bootstrap';
+import {useNavigate, useParams} from 'react-router-dom';
+import {Button, Card} from 'react-bootstrap';
 import IngredientsTable from 'components/ingredientsTable/IngredientsTable';
 
 const Recipe = () => {
-   const { id } = useParams();
+   const {id} = useParams();
    const navigate = useNavigate();
-   const { isLoading, error, data: recipe } = useGetRecipeByIdQuery(id ? id : '');
-   const [trigger, { isSuccess }] = recipeApi.endpoints.deleteRecipeById.useLazyQuery();
+   const {isLoading, error, data: recipe} = useGetRecipeByIdQuery(id ? id : '');
+   const [trigger, {isSuccess}] = recipeApi.endpoints.deleteRecipeById.useLazyQuery();
    const deleteRecipe = () => {
       trigger(id ? id : '');
       navigate('/recipes');
@@ -34,13 +34,14 @@ const Recipe = () => {
                      </div>
                   </Card.Header>
                   <div className="card-content">
-                     <Card.Img className="recipe-image" src={recipe.imageUrl} />
+                     <Card.Img className="recipe-image"
+                               src={process.env.BASE_SERVER_URL_PREFIX + recipe.imageUrl}/>
                      <Card.Body>
                         <Card.Text>
                            <h5>Description: </h5>
                            {recipe.description}
                         </Card.Text>
-                        <IngredientsTable ing={recipe.ingredients} />
+                        <IngredientsTable ing={recipe.ingredients}/>
                         <Card.Text>
                            <h5>Instructions: </h5> {recipe.instructions}
                         </Card.Text>

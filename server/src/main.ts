@@ -7,12 +7,6 @@ async function bootstrap() {
 
    app.enableCors();
 
-   // app.enableCors({
-   //    allowedHeaders: ['content-type', 'authorization'],
-   //    origin: process.env.REACT_APP_SERVER_ENDPOINT,
-   //    credentials: true,
-   // });
-
    app.useGlobalPipes(new ValidationPipe());
    app.listen(process.env.SERVER_PORT)
        .then(() => {

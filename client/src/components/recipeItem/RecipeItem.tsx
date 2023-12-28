@@ -13,7 +13,8 @@ function RecipeItem({recipe}: any) {
 
   return (
     <Card className='recipe-card' >
-      <Card.Img variant="top" src={recipe.imageUrl} />
+        /api/olo.jpg
+      <Card.Img variant="top" src={process.env.BASE_SERVER_URL_PREFIX + recipe.imageUrl} />
       <Card.Body>
         <Card.Title>{recipe.title}</Card.Title>
         <Card.Text>

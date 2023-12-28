@@ -3,18 +3,18 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './EditRecipe.scss';
-import { useState, useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import DataLoadingWrapper from 'components/dataLoadingWrapper/DataLoadingWrapper';
-import { useUploadImageMutation } from 'redux/api/upload/upload.api';
-import { useGetRecipeByIdQuery, useGetRecipesListQuery, useUpdateRecipeMutation } from 'redux/api/recipe/recipe.api';
+import {useUploadImageMutation} from 'redux/api/upload/upload.api';
+import {useGetRecipeByIdQuery, useGetRecipesListQuery, useUpdateRecipeMutation} from 'redux/api/recipe/recipe.api';
 import IngredientsSelect from 'components/ingredientsSelect/IngredientsSelect';
-import { SerializedError } from '@reduxjs/toolkit';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Ingredient, Recipe, RecipeForm } from 'types';
+import {SerializedError} from '@reduxjs/toolkit';
+import {FetchBaseQueryError} from '@reduxjs/toolkit/dist/query';
+import {useNavigate, useParams} from 'react-router-dom';
+import {Ingredient, Recipe, RecipeForm} from 'types';
 
 const EditRecipe = () => {
-   const { id } = useParams();
+   const {id} = useParams();
    const navigate = useNavigate();
    const {
       isLoading: getRecipeLoading,
@@ -52,7 +52,7 @@ const EditRecipe = () => {
             description: recipe?.description || '',
             instructions: recipe?.instructions || '',
          });
-         setPreview(recipe?.imageUrl || '');
+         setPreview(process.env.BASE_SERVER_URL_PREFIX + (recipe?.imageUrl || ''));
          setSelectedIngrts(recipe.ingredients);
       }
    }, [recipe]);
@@ -78,9 +78,9 @@ const EditRecipe = () => {
          const recipe: Partial<Recipe> = {
             ...recipeForm,
             ingredients: selectedIngrts.map((el: any) => {
-               return { _id: el._id, quantity: el.quantity, unit: el.unit };
+               return {_id: el._id, quantity: el.quantity, unit: el.unit};
             }),
-            imageUrl: imageData?.data.url,
+            imageUrl: process.env.BASE_SERVER_URL_PREFIX + imageData?.data.url,
          };
          await updateRecipe({recipe, id});
          await fetchRecipes.refetch();

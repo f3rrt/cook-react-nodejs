@@ -1,0 +1,32 @@
+version: '3'
+networks:
+  default:
+    external:
+      name: pidocker
+services:
+  mongodb:
+    restart: always
+    image: 'arm64v8/mongo:7.0.4-jammy'
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    volumes:
+      - /home/ferrt/container-mounts/mongo:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ferrt
+      MONGO_INITDB_ROOT_PASSWORD: changeit
+  cook-server:
+    container_name: cook-server
+    hostname: cook-server
+    image: 'ferrtdockr/cook-server:latest'
+    ports:
+      - '7000:7000'
+  cook-front:
+    restart: unless-stopped
+    image: 'ferrtdockr/cook-front:latest'
+    hostname: cook-front
+    container_name: cook-front
+    ports:
+      - '8080:8080'
+    volumes:
+      - /home/ferrt/container-mounts/cook-server:/app/public/images
